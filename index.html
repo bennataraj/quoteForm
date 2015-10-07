@@ -1,486 +1,63 @@
 <!DOCTYPE html>
+<html>
 <head>
-<title>Quote Form</title>
+<title>Freelance Insurance</title>
 
-<script type="text/javascript">
-function showMe(id) { // This gets executed when the user clicks on the checkbox
-	var obj = document.getElementById(id);
-if (obj.style.display=="block") { // if it is checked, make it visible, if not, hide it
-	obj.style.display = "block";
-} else {
-	obj.style.display = "none";
-}
-}
-function recalculate()// calculate the PI cost
-    {
-        var f = document.forms.myform;
-        var turn = f.price.value;
-        var qty = f.qty.value;
-        var piCost = null; 
-        var subcost = null;
-        var picosttotal = null;
-
-if (document.getElementById('noCheck').checked) {
-        piCost = 0;
-    }
-   
-else if(qty == 195 && turn == 118)
-{
-piCost = 195.00;
-} else if (qty == 195 && turn == 128)
-{
-piCost = 201.00;
-} else if (qty == 195 && turn == 138)
-{
-piCost = 236.00;
-} else if (qty == 195 && turn == 148)
-{
-piCost = 289.00;
-} else if (qty == 195 && turn == 158)
-{
-piCost = 507.00;
-} else if (qty == 250 && turn == 118)
-{
-piCost = 245.00;
-} else if (qty == 250 && turn == 128)
-{
-piCost = 271.00;
-} else if (qty == 250 && turn == 138)
-{
-piCost = 354.00;
-} else if (qty == 250 && turn == 148)
-{
-piCost = 437.00;
-} else if (qty == 250 && turn == 158)
-{
-piCost = 681.00;
-} else if (qty == 308 && turn == 118)
-{
-piCost = 307.00;
-} else if (qty == 308 && turn == 128)
-{
-piCost = 387.00;
-} else if (qty == 308 && turn == 138)
-{
-piCost = 460.00;
-} else if (qty == 308 && turn == 148)
-{
-piCost = 644.00;
-} else if (qty == 308 && turn == 158)
-{
-piCost = 850.00;
-} else if (qty == 409 && turn == 118)
-{
-piCost = 368.00;
-} else if (qty == 409 && turn == 128)
-{
-piCost = 450.00;
-} else if (qty == 409 && turn == 138)
-{
-piCost = 552.00;
-} else if (qty == 409 && turn == 148)
-{
-piCost = 774.00;
-} else if (qty == 409 && turn == 158)
-{
-piCost = 1015.00;
-} else if (qty == 510 && turn == 118)
-{
-piCost = 460.00;
-} else if (qty == 510 && turn == 128)
-{
-piCost = 576.00;
-} else if (qty == 510 && turn == 138)
-{
-piCost = 690.00;
-} else if (qty == 510 && turn == 148)
-{
-piCost = 968.00;
-} else if (qty == 510 && turn == 158)
-{
-piCost = 1269.00;
-} else if (qty == 611 && turn == 118)
-{
-piCost = 552.00;
-} else if (qty == 611 && turn == 128)
-{
-piCost = 690.00;
-} else if (qty == 611 && turn == 138)
-{
-piCost = 828.00;
-} else if (qty == 611 && turn == 148)
-{
-piCost = 1161.00;
-} else if (qty == 611 && turn == 158)
-{
-piCost = 1522.00;
-} else if (qty == 713 && turn == 118)
-{
-piCost = 608.00;
-} else if(qty == 713 && turn == 128)
-{
-piCost = 759.00;
-} else if (qty == 713 && turn == 138)
-{
-piCost = 911.00;
-} else if (qty == 713 && turn == 148)
-{
-piCost = 1278.00;
-} else if (qty == 713 && turn == 158)
-{
-piCost = 1674.00;
-} else if (qty == 812 && turn == 118)
-{
-piCost = 608.00;
-} else if (qty == 812 && turn == 128)
-{
-piCost = 759.00;
-} else if (qty == 812 && turn == 138)
-{
-piCost = 911.00;
-} else if (qty == 812 && turn == 148)
-{
-piCost = 1278.00;
-} else if (qty == 812 && turn == 158)
-{
-piCost = 1674.00;
-} else if (qty == 911 && turn == 118)
-{
-piCost = 680.00;
-} else if (qty == 911 && turn == 128)
-{
-piCost = 835.00;
-} else if (qty == 911 && turn == 138)
-{
-piCost = 1003.00;
-} else if (qty == 911 && turn == 148)
-{
-piCost = 1405.00;
-} else if (qty == 911 && turn == 158)
-{
-piCost = 1841.00;
-} else if (qty == 1044 && turn == 118)
-{
-piCost = 680.00;
-} else if (qty == 1044 && turn == 128)
-{
-piCost = 835.00;
-} else if (qty == 1044 && turn == 138)
-{
-piCost = 1003.00;
-} else if (qty == 1044 && turn == 148)
-{
-piCost = 1405.00;
-} else if (qty == 1044 && turn == 158)
-{
-piCost = 1841.00;
-}
-
-var pisubcost = parseFloat(piCost);
-var picosttotal = pisubcost.toFixed(2)
-
-       f.cost.value = picosttotal;
-
-    }
-
-var makes = new Array("IT/Computer Contractors", "Engineering Contractors", "Construction Contractors", "Interim Managers", "Management Consultants", "New Media & Creative Consultants", "Social Workers", "Finance Professionals", "Legal Professions", "Forensic Practitioners and Experts", "Photographers", "NRAC Members");
-var models = new Array();
-models["IT/Computer Contractors"] = new Array("Computer Programmers", "Analyst Programmers", "Design Engineers", "CAD/CAE Engineers", "Chief Executive Officer", "Human Resources Director", "Business Analyst", "Business Consultants", "Graphic Designers", "Media Consultancy", "Project Managers / Directors", "Business Analysts", "System Architects", "Network Communication Consultants", "Telecomms Consultants", "Website Designers", "Analysts", "Quality Management", "Security Consultants", "Change Management", "CRM Systems", "Hardware Consultants", "System Designers", "Trainers", "PC/Network Support Consultants", "Project Support Consultants", "Software Consultants", "Database Consultants", "Programme Managers", "System Testers", "IT Hardware and/or Software Procurement Consultant", "Analyst Programmers", "Design Engineers");
-models["Engineering Contractors"] = new Array("Design Enginneers","CAD/CAE Engineers", "Draughtsman", "Project Managers", "Test Engineers", "Engineering Consultants", "Aircraft Engineers", "Oil/Gas Engineer", "Mechanical Design Engineers", "Chemical Process Engineers", "Commissioning Engineers", "Control Engineers", "Field Engineers", "Health &amp; Safety Engineers", "Transport Engineers", "Energy Assessors (Accredited - Excluding Level 5)");
-models["Construction Contractors"] = new Array("Assistant Site Managers", "Building Site Management", "Construction Manager", "Contracts Manager", "Document Control", "Fire Safety Audits", "Health & Safety COnsultants", "Maintenance Managers", "Operations Managers", "Projects Managers", "Site Engineers", "Site Managers", "Structural Engineers", "Techincal Engineers", "Electrical Engineers", "Estimators", "Planning Engineers", "Highway Engineers");
-models["Interim Managers"] = new Array("Chief Executive Office", "Human Resources Director", "Financial Director", "Procurement Director", "Estates/Facilities Director", "Finance & Accounting" , "Sales/Marketing & PR", "Personnel Management & Selection", "Company Development & Planning" , "Procurement", "Operations", "Quality Systems", "Productions", "Quality Systems", "Production", "Distribution", "Change Management", "Public Services Admin", "Training", "Megers & Acquisitions", "Business Process Re-Engineering");
-models["Management Consultants"] = new Array("Buyer", "Business Continuity Management Consultant", "Compliance Co-Ordinator", "Compliance Inspector", "Data Analyst", "Finance & Accounting", "Sales/Marketing & PR", "Personnel Management & Selection", "Company Development & Planning", "Health & Safety", "Procurement", "Operations", "Quality Systems", "Production", "Distribution", "Change Management", "Public Services Admin", "Training", "Mergers & Acquisition", "Business Process Re-Engineering", "Management Consultancy", "Management Training", "Legal Training", "Business Analyst", "Project Management", "Higher Eduction Consultant", "Tenant Verification", "Chartered Building Consultancy", "Careers Adisory Service", "Counseling Serivce", "Wildlife Consultant", "Public Relations Consultant", "Marketing Consultant", "Company Search Agent", "Coporate Identity Consultants", "Export Consultant", "Food Industry Consultant", "Forestry Consultant", "Fuel Efficiency Consultant", "Quality Assurance Consultant", "Town Planner", "Traffic & Transport Consultant", "Tourism Consultant", "Mediator", "Property", "Management", "Fundraising Consultant");
-models["New Media & Creative Consultants"] = new Array("Graphic Designers", "Media Consultancy", "New Media", "Copy Writers", "Editing", "Animation", "Interior Design", "Artists", "Music Teachers");
-models["Social Workers"] = new Array("Adult Care", "Children & Families", "Drugs & Alcohol", "Mental Health", "Care of Older People", "Probation", "Youth Offering", "Care Managers", "Occupational Therapy");
-models["Finance Professionals"] = new Array("Analysts", "Auditors", "CFO's", "Tax", "Credit Controllers", "Financial Controllers", "Payroll", "Risk", "Compliance");
-models["Legal Professions"] = new Array("Legal Executives", "Paralegal (only working for non-Law Company)", "Legal Secretaries", "Legal Skills", "Trainers", "McKenzie", "Friends", "Will Writers");
-models["Forensic Practitioners and Experts"] = new Array("Accountancy", "Anthropology", "Archeology", "Computers", "Drugs", "Expert Witness", "Fingerprint Development/Examination", "Fire Scene Investigation", "Firearms", "Human Contact Trace", "Imaging/Imagin Evaluation", "Incident Evaluation", "Marks", "Nursing", "Odontology", "Particulars & Other Traces", "Podiatry", "Question Documents", "Road Transport Investigation", "Scene Examination", "Telecoms", "Toxicology", "Veterinary Science");
-models["Photographers"] = new Array("Wedding Photographers", "Portrait Photography", "Fashion Photographers", "Corporate & Event Photographers", "Freelance Investigative Photographers");
-models["NRAC Members"] = new Array("Access Consultants");
- 
-function resetForm(theForm) {
-  /* reset makes */
-  theForm.makes.options[0] = new Option("Please select Profession", "");
-  for (var i=0; i<makes.length; i++) {
-    theForm.makes.options[i+1] = new Option(makes[i], makes[i]);
-  }
-  theForm.makes.options[0].selected = true;
-  /* reset models */
-  theForm.models.options[0] = new Option("Please select a Sub Profession", "");
-  theForm.models.options[0].selected = true;
-}
- 
-function updateModels(theForm) {
-  var make = theForm.makes.options[theForm.makes.options.selectedIndex].value;
-  var newModels = models[make];
-  theForm.models.options.length = 0;
-  theForm.models.options[0] = new Option("Please select a Sub Profession", "");
-  for (var i=0; i<newModels.length; i++) {
-    theForm.models.options[i+1] = new Option(newModels[i], newModels[i]);
-  }
-  theForm.models.options[0].selected = true;
-}
-
-
-
-function yesnoCheck() {
-document.getElementById('ifYes').style.display = 'block';
-    if (document.getElementById('yesCheck').checked) {
-        document.getElementById('ifYes').style.display = 'block';
-    }
-    else document.getElementById('ifYes').style.display = 'none';
-
-}
-function yesnoCheck1() {
-document.getElementById('ifYes1').style.display = 'block';
-    if (document.getElementById('yesCheck1').checked) {
-        document.getElementById('ifYes1').style.display = 'block';
-    }
-    else document.getElementById('ifYes1').style.display = 'none';
-
-}
-
-function yesnoCheck2() {
-document.getElementById('ifYes2').style.display = 'block';
-    if (document.getElementById('yesCheck2').checked) {
-        document.getElementById('ifYes2').style.display = 'block';
-    }
-    else document.getElementById('ifYes2').style.display = 'none';
-
-}
- 
-function BusinessPrice(){
-
-        var g = document.forms.myform;
-        var office = g.office.value;
-        var portable = g.portable.value;
-        var pl = g.pl.value;
-        var manual = g.manual.value;
-        var offshore = g.offshore.value;
-	
-
-if (document.getElementById('noCheck1').checked) {
-        office = 0;
-        portable = 0;
-        pl = 0;
-        manual = 0;
-        offshore = 0;
-    }
-
-else if (office == 5000){
-office = 132.00;
-}
-else if (office == 10000){
-office = 162.00;
-}
-if (portable == 15){
-portable = 0.00;
-}
-else if (portable == 16){
-portable = 12.00;
-} else if (portable == 17){
-portable = 24.00;
-} else if (portable == 18){
-portable = 35.00;
-} else if (portable == 19){
-portable = 47.00;
-} else if (portable == 20){
-portable = 59.00;
-} else if (portable == 21){
-portable = 12.00;
-} else if (portable == 22){
-portable = 35.00;
-} else if (portable == 23){
-portable = 63.00;
-} else if (portable == 24){
-portable = 71.00;
-} else if (portable == 25){
-portable = 89.00;
-} else if (portable == 26){
-portable = 30.00;
-} else if (portable == 27){
-portable = 59.00;
-} else if (portable == 28){
-portable = 89.00;
-} else if (portable == 29){
-portable = 114.00;
-} else if (portable == 30){
-portable = 148.00;
-}
-if (pl == 32){
-pl = 0.00
-}else if (pl == 33){
-pl = 30.00
-} else if (pl == 34){
-pl = 59.00
-}
-if (manual == 38){
-manual = 0
-} else if (manual == 39){
-manual = 118.00
-}
-if (offshore == 40){
-offshore = 0
-} else if (offshore == 41){
-offshore = 118
-}
-
-var bussub = parseFloat(office) + parseFloat(portable) + parseFloat(pl) + parseFloat(manual) + parseFloat(offshore);
-var bustotal = bussub.toFixed(2)
-
-       g.businesscost.value = bustotal;
-
-
-}
-
-
- 
-function PaTravelPrice(){
-
-        var h = document.forms.myform;
-        var accident = h.accident.value;
-        var sickness = h.sickness.value;
-        var travel = h.travel.value;
-
-       
-if (document.getElementById('noCheck2').checked) {
-        accident = 0;
-        sickness = 0;
-        travel = 0;
-       
-    }             
-
-else if (accident == 48 && sickness == 55){
-accident = 41
-sickness = 0
-} else if (accident == 49 && sickness == 55){
-accident = 83
-sickness = 0
-} else if (accident == 50 && sickness == 55){
-accident = 118
-sickness = 0
-} else if (accident == 51 && sickness == 55){
-accident = 191
-sickness = 0
-} else if (accident == 52 && sickness == 55){
-accident = 222
-sickness = 0
-} else if (accident == 53 && sickness == 55){
-accident = 310
-sickness = 0
-} else if (accident == 54 && sickness == 55){
-accident = 338
-sickness = 0
-}
-if (accident == 48 && sickness == 56){
-accident = 41
-sickness = 95
-} else if (accident == 49 && sickness == 56){
-accident = 83
-sickness = 190
-} else if (accident == 50 && sickness == 56){
-accident = 118
-sickness = 254
-} else if (accident == 51 && sickness == 56){
-accident = 191
-sickness = 317
-} else if (accident == 52 && sickness == 56){
-accident = 222
-sickness = 317
-} else if (accident == 53 && sickness == 56){
-accident = 310
-sickness = 635
-} else if (accident == 54 && sickness == 56){
-accident = 338
-sickness = 636
-}
-if (travel == 59){
-travel = 0
-}
-if (travel == 57){
-travel = 88
-}
-else if (travel == 58){
-travel = 138
-}
- 
-var c = parseFloat(accident) + parseFloat(sickness) + parseFloat(travel);
-var d = c.toFixed(2)
-
-h.patravelcost.value = d;    
-}     
-
-
-function getTotal()
-{
-    //Get the total price by calling our function
-    //Each function returns a number so by calling them we add the values they return together
-    var calcPrice = parseInt(document.getElementById('patravelcost').value) + parseInt(document.getElementById('businesscost').value) + parseInt(document.getElementById('cost').value);
- 
-    //display the result
-    document.getElementById('totalPrice').innerHTML = "Total Premium €"+calcPrice.toFixed(2);
-
- 
-}
-
-
-function loadprice()
-{
-//load the minumim prices for section to produce a basic quote
-PaTravelPrice()
-BusinessPrice()
-recalculate()
-getTotal()
-}
-
-
-
-
-
-</script>
+  <script src="js/freelancecalculations.js"></script>
+   <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
-
 <body onload="loadprice();">
-<div style="margin: auto; width: 900px; font-family: Arial;">
-<div style="padding: 5px; margin-bottom: 15px;"><h1>Quotation Form</h1>
-</div>
-<div style="float: left">
-<div style=" padding: 5px; width: 250px;">
-<h2 style="margin: 2px;">Freelance Insurance</h2>
-<h5>Excellent, low cost, freelance insurance</h5>
-<a href="http://tinypic.com?ref=bj8pqd" target="_blank"><img style="padding: 2px; border: 1px solid #cccccc; margin-bottom: 10px;" src="http://i46.tinypic.com/bj8pqd.jpg" border="1" alt="Image and video hosting by TinyPic"></a>
-</div>
-<div style="border: 1px solid #cccccc; border-radius: 10px; padding: 10px; width: 230px;">
-<h5>Policy Benefits</h5>
-<ul style="font-size: 11px; color: #666666;">
-<li>Low policy excess</li>
-<li>Lowest premium on market</li>
-<li>Fast & Effecient claims handling</li>
-</ul>
-</div>
-<div style="padding: 10px; width: 250px;">
-<h5>Key Policy Features</h5>
-<ul style="font-size: 11px; color: #666666;">
-<li>Low policy excess</li>
-<li>Lowest premium on market</li>
-<li>Emplopyers Liability of €5,000,000</li>
-<li>Fast & Effecient claims handling</li>
-</ul>
-</div>
-<div style="border: 1px solid #cccccc; border-radius: 10px; padding: 10px; width: 230px;">
-<h5>Policy Documents</h5>
-<p style="font-size: 11px; color: #666666;">Policy Summary</p>
-<p style="font-size: 11px; color: #666666;">Full Policy Document</p>
-</div>
-</div>
+<div class="mainBody">
+		
+	<header>
+		<div class="logo">
+			<h1>Logo goes here</h1>
+			
+		</div>
+		<nav>
+			
+  			
+		</nav>
 
+	</header>
+	
+
+	<aside class="sideBar">
+			<h2>Quote details/Tagline</h2>
+			<h5 class="green">Excellent, low cost, product goes here</h5>
+		
+		<article class="sideBox">
+			<h5>Policy Benefits</h5>
+				<ul>
+					<li>Low policy excess</li>
+					<li>Lowest premium on market</li>
+					<li>Fast & Effecient claims handling</li>
+				</ul>
+		</article>
+		<article class="sideBox noBorder">
+			<h5>Key Policy Features</h5>
+				<ul>
+					<li>Low policy excess</li>
+					<li>Lowest premium on market</li>
+					<li>Emplopyers Liability of €5,000,000</li>
+					<li>Fast & Effecient claims handling</li>
+				</ul>
+		</article>
+
+		<article class="sideBox">
+			<h5>Policy Documents</h5>
+			<p>Policy Summary</p>
+			<p>Full Policy Document</p>
+		</article>
+
+	</aside>
  
 
-<div style=" float: right; width: 600px; border-radius: 10px; background-color: #fafafa; padding: 5px 5px 5px 15px; border: 1px solid #12967c;">
-<h1 style="color: #666666; font-size: 18px;">Quick Quote</h1>
+<div class="rightBody">
+	<h1 style="color: #666666; font-size: 18px;">Quick Quote</h1>
 
-<form name="autoSelectForm" action="quote.php" method="post" class= "form1" id="myform" style="font-size: 13px;"> 
+<form name="SelectForm" action="quote.php" method="post" class= "form1" id="myform" style="font-size: 13px;"> 
   <h3 style="color: #12967c; margin: 2px;">About You:</h3>
 <fieldset style="width: 550px; margin-bottom: 20px; border: none;">
         <table border="0" cellspacing="0" cellpadding="0" style="font-size: 12px;">
@@ -498,16 +75,16 @@ getTotal()
            <tr>
             <td style="width: 350px;">Company Turnover:</td>
 <td><select id="qty" onChange="recalculate(); getTotal();"> 
-<option value="195">€0 - €50,000</option>
-<option value="250">€50,001 - €100,000</option>
-<option value="308">€100,001 - €150,000</option>
-<option value="409">€150,001 - €200,000</option>
-<option value="510">€200,001 - €250,000</option>
-<option value="611">€250,001 - €300,000</option>
-<option value="713">€300,001 - €350,000</option>
-<option value="812">€350,001 - €400,000</option>
-<option value="911">€400,001 - €450,000</option>
-<option value="1044">€450,001 - €500,000</option></select></td>
+<option value="0-50">€0 - €50,000</option>
+<option value="50-100">€50,001 - €100,000</option>
+<option value="100-150">€100,001 - €150,000</option>
+<option value="150-200">€150,001 - €200,000</option>
+<option value="200-250">€200,001 - €250,000</option>
+<option value="250-300">€250,001 - €300,000</option>
+<option value="300-350">€300,001 - €350,000</option>
+<option value="350-400">€350,001 - €400,000</option>
+<option value="400-450">€400,001 - €450,000</option>
+<option value="450-500">€450,001 - €500,000</option></select></td>
          </tr>
          <tr>
             <td style="width: 350px;">Number of Employees:</td>
@@ -515,7 +92,7 @@ getTotal()
 <option value="12">2</option>
 <option value="13">3</option>
 <option value="14">4</option>
-<option value="15">5</option></select></td>
+<option value="15">5 or more</option></select></td>
          </tr>
          
          
@@ -527,7 +104,7 @@ getTotal()
 
 <h4 style="color: #12967c; display: inline;">Professional Indemnity</h4>
 
-<p style="text-align:right;  display: inline; margin-left: 145px; margin-bottom: 10px;">Is the cover Required?<label for="yesCheck"> Yes</label>  
+<p style="text-align:right;  display: inline; margin-left: 145px; margin-bottom: 10px; color: black; font-weight: bold; ">Is the cover Required?<label for="yesCheck"> Yes</label>  
 <input type="radio" checked="checked"  value="yes" onclick="yesnoCheck(); recalculate(); getTotal();" name="yesno" id="yesCheck"><label for="noCheck">No</label> <input type="radio" value="no" onclick="yesnoCheck(); recalculate(); getTotal();" name="yesno" id="noCheck"><br></span></p>
 <div id="ifYes" style="display:block">
 <fieldset style="width: 500px; margin-bottom: 20px; border: none;">
@@ -535,7 +112,7 @@ getTotal()
       <table border="0" cellspacing="0" cellpadding="2" style="font-size: 12px;">
 
          <tr>
-            <td style="width: 350px;">Level of Cover:</td>
+            <td style="width: 310px;">Level of Cover:</td>
             <td><select id="price" onChange="recalculate(); getTotal();">
         <option value="118">€100,000</option>
         <option value="128">€250,000</option>
@@ -550,14 +127,14 @@ getTotal()
 
 </fieldset>
 </div>
-<h4 style="color: #12967c; display: inline;">Business Combined</h4><p style="text-align:right; display: inline; margin-left: 170px; margin-bottom: 10px;">Is the cover Required? <label for="yesCheck1">Yes</label>  
+<h4 style="color: #12967c; display: inline;">Business Combined</h4><p style="font-weight: bold; text-align:right; display: inline; margin-left: 170px; margin-bottom: 10px; color: black;">Is the cover Required? <label for="yesCheck1">Yes</label>  
 <input type="radio" checked="checked"  value="yes1" onclick="yesnoCheck1(); BusinessPrice(); getTotal();" name="yesno1" id="yesCheck1"><label for="noCheck1">No</label> <input type="radio" value="no1" onclick="yesnoCheck1(); BusinessPrice(); getTotal();" name="yesno1" id="noCheck1"><br></span></p>
 <div id="ifYes1" style="display:block">
 <fieldset style="width: 500px; margin-bottom: 20px; border: none;">
         <table border="0" cellspacing="0" cellpadding="2" style="font-size: 12px;">
 
          <tr>
-            <td style="width: 350px;">Office Contents:</td>
+            <td style="width: 310px;">Office Contents:</td>
             <td><select id="office" onChange="BusinessPrice(); getTotal();"><option value="5000" selected="selected">€5,000</option>
 <option value="10000">€10,000</option></select></td>
          </tr>
@@ -609,13 +186,13 @@ getTotal()
       </table>
 </fieldset>
 </div>
-<div><h4 style="color: #12967c; display: inline; text-align: left;">Personal Accident, Sickness & Travel</h4><p style=" text-align:right; display: inline; margin-left: 59px;">Is the cover Required? <label for="yesCheck2">Yes</label>  
-<input type="radio" checked="checked" value="yes2" onclick="yesnoCheck2();  PaTravelPrice(); getTotal();" name="yesno2" id="yesCheck2"><label for="noCheck2">No</label> <input type="radio" value="no2" onclick="yesnoCheck2(); PaTravelPrice(); getTotal();" name="yesno2" id="noCheck2"><br></span></p></div>
+<div><h4 style="color: #12967c; display: inline; text-align: left;">Personal Accident, Sickness & Travel</h4><p style="font-weight: bold; text-align:right; display: inline; margin-left: 59px; color: black;">Is the cover Required? <label for="yesCheck2">Yes</label>  
+<input type="radio" checked="checked"  value="yes2" onclick="yesnoCheck2();  PaTravelPrice(); getTotal();" name="yesno2" id="yesCheck2"><label for="noCheck2">No</label> <input type="radio" value="no2" onclick="yesnoCheck2(); PaTravelPrice(); getTotal();" name="yesno2" id="noCheck2"><br></span></p></div>
 <div id="ifYes2" style="display:block">
 <fieldset style="width: 500px; margin-bottom: 20px; border: none;">
         <table border="0" cellspacing="0" cellpadding="2" style="font-size: 12px;">
          <tr>
-            <td>Accident, Death & Permanent Disability</td>
+            <td style="width: 310px;">Accident, Death & Permanent Disability</td>
             <td><select id="accident" onChange="PaTravelPrice(); getTotal();"><option value="48" selected="selected">€20,000</option>
 <option value="49">€40,000</option>
 <option value="50">€60,000</option>
@@ -625,16 +202,16 @@ getTotal()
 <option value="54">€140,000</option></select></td>
          </tr>
           <tr>
-            <td>Accidental Temporary Total Disablement</td>
+            <td style="width: 310px;">Accidental Temporary Total Disablement</td>
             <td>€150.00</td>
          </tr>
            <tr>
-            <td>Sickness Extension Required:</td>
+            <td style="width: 310px;">Sickness Extension Required:</td>
             <td><select id="sickness" onChange="PaTravelPrice(); getTotal();"><option value="55" selected="selected">No</option>
 <option value="56">Yes</option></select></td>
          </tr>
          <tr>
-            <td>Travel Cover:</td>
+            <td style="width: 310px;">Travel Cover:</td>
             <td><select id="travel" onChange="PaTravelPrice(); getTotal();">
            <option value="59">Not Required</option>
           <option value="57">Business Travel Only</option>
@@ -675,9 +252,8 @@ getTotal()
 <div id="getcover" style="margin-top: 20px;"><input type="submit" style="float: right;" value="Continue"></div>
 </form>
 <script type="text/javascript">
-  resetForm(document.autoSelectForm);
+  resetForm(document.SelectForm);
 </script>
 </div>
 </div>
-</body>
-</html>
+<?php include 'footer.php'; ?>
