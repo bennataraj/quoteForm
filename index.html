@@ -17,7 +17,11 @@
 		</div>
 		<nav>
 			
-  			
+  			<a href="/html/">HTML</a> |
+  			<a href="/css/">CSS</a> |
+ 			<a href="/js/">JavaScript</a> |
+  			<a href="/jquery/">jQuery</a>
+
 		</nav>
 
 	</header>
@@ -55,14 +59,14 @@
  
 
 <div class="rightBody">
-	<h1 style="color: #666666; font-size: 18px;">Quick Quote</h1>
+	<h1">Quick Quote</h1>
 
-<form name="SelectForm" action="quote.php" method="post" class= "form1" id="myform" style="font-size: 13px;"> 
-  <h3 style="color: #12967c; margin: 2px;">About You:</h3>
-<fieldset style="width: 550px; margin-bottom: 20px; border: none;">
-        <table border="0" cellspacing="0" cellpadding="0" style="font-size: 12px;">
+<form name="SelectForm" action="quote.php" method="post" class= "form1" id="myform"> 
+  <h3>About You:</h3>
+<fieldset>
+        <table border="0" cellspacing="0" cellpadding="0">
          <tr>
-            <td style="width: 350px;">Profession:</td>
+            <td>Profession:</td>
 <td><select size="1" name="makes" onchange="updateModels(this.form)">
 </select><br /></td>
            
@@ -73,7 +77,7 @@
 </select></td>
          </tr>
            <tr>
-            <td style="width: 350px;">Company Turnover:</td>
+            <td>Company Turnover:</td>
 <td><select id="qty" onChange="recalculate(); getTotal();"> 
 <option value="0-50">€0 - €50,000</option>
 <option value="50-100">€50,001 - €100,000</option>
@@ -87,7 +91,7 @@
 <option value="450-500">€450,001 - €500,000</option></select></td>
          </tr>
          <tr>
-            <td style="width: 350px;">Number of Employees:</td>
+            <td>Number of Employees:</td>
             <td> <select id="employees"><option value="11">1</option>
 <option value="12">2</option>
 <option value="13">3</option>
@@ -100,16 +104,16 @@
 </fieldset>
 
 
-<h3 style="color: #666666; font-size: 18px; margin: 5px;">Cover Required:</h3>
+<h3>Cover Required:</h3>
 
-<h4 style="color: #12967c; display: inline;">Professional Indemnity</h4>
+<h4>Professional Indemnity</h4>
 
-<p style="text-align:right;  display: inline; margin-left: 145px; margin-bottom: 10px; color: black; font-weight: bold; ">Is the cover Required?<label for="yesCheck"> Yes</label>  
+<p>Is the cover Required?<label for="yesCheck"> Yes</label>  
 <input type="radio" checked="checked"  value="yes" onclick="yesnoCheck(); recalculate(); getTotal();" name="yesno" id="yesCheck"><label for="noCheck">No</label> <input type="radio" value="no" onclick="yesnoCheck(); recalculate(); getTotal();" name="yesno" id="noCheck"><br></span></p>
 <div id="ifYes" style="display:block">
-<fieldset style="width: 500px; margin-bottom: 20px; border: none;">
+<fieldset>
   
-      <table border="0" cellspacing="0" cellpadding="2" style="font-size: 12px;">
+      <table border="0" cellspacing="0" cellpadding="2">
 
          <tr>
             <td style="width: 310px;">Level of Cover:</td>
@@ -127,14 +131,14 @@
 
 </fieldset>
 </div>
-<h4 style="color: #12967c; display: inline;">Business Combined</h4><p style="font-weight: bold; text-align:right; display: inline; margin-left: 170px; margin-bottom: 10px; color: black;">Is the cover Required? <label for="yesCheck1">Yes</label>  
+<h4 style="display: inline;">Business Combined</h4><p>Is the cover Required? <label for="yesCheck1">Yes</label>  
 <input type="radio" checked="checked"  value="yes1" onclick="yesnoCheck1(); BusinessPrice(); getTotal();" name="yesno1" id="yesCheck1"><label for="noCheck1">No</label> <input type="radio" value="no1" onclick="yesnoCheck1(); BusinessPrice(); getTotal();" name="yesno1" id="noCheck1"><br></span></p>
 <div id="ifYes1" style="display:block">
 <fieldset style="width: 500px; margin-bottom: 20px; border: none;">
         <table border="0" cellspacing="0" cellpadding="2" style="font-size: 12px;">
 
          <tr>
-            <td style="width: 310px;">Office Contents:</td>
+            <td>Office Contents:</td>
             <td><select id="office" onChange="BusinessPrice(); getTotal();"><option value="5000" selected="selected">€5,000</option>
 <option value="10000">€10,000</option></select></td>
          </tr>
@@ -186,13 +190,13 @@
       </table>
 </fieldset>
 </div>
-<div><h4 style="color: #12967c; display: inline; text-align: left;">Personal Accident, Sickness & Travel</h4><p style="font-weight: bold; text-align:right; display: inline; margin-left: 59px; color: black;">Is the cover Required? <label for="yesCheck2">Yes</label>  
+<div><h4">Personal Accident, Sickness & Travel</h4><p style="font-weight: bold; text-align:right; display: inline; margin-left: 59px; color: black;">Is the cover Required? <label for="yesCheck2">Yes</label>  
 <input type="radio" checked="checked"  value="yes2" onclick="yesnoCheck2();  PaTravelPrice(); getTotal();" name="yesno2" id="yesCheck2"><label for="noCheck2">No</label> <input type="radio" value="no2" onclick="yesnoCheck2(); PaTravelPrice(); getTotal();" name="yesno2" id="noCheck2"><br></span></p></div>
 <div id="ifYes2" style="display:block">
-<fieldset style="width: 500px; margin-bottom: 20px; border: none;">
-        <table border="0" cellspacing="0" cellpadding="2" style="font-size: 12px;">
+<fieldset>
+        <table border="0" cellspacing="0" cellpadding="2">
          <tr>
-            <td style="width: 310px;">Accident, Death & Permanent Disability</td>
+            <td>Accident, Death & Permanent Disability</td>
             <td><select id="accident" onChange="PaTravelPrice(); getTotal();"><option value="48" selected="selected">€20,000</option>
 <option value="49">€40,000</option>
 <option value="50">€60,000</option>
@@ -202,16 +206,16 @@
 <option value="54">€140,000</option></select></td>
          </tr>
           <tr>
-            <td style="width: 310px;">Accidental Temporary Total Disablement</td>
+            <td>Accidental Temporary Total Disablement</td>
             <td>€150.00</td>
          </tr>
            <tr>
-            <td style="width: 310px;">Sickness Extension Required:</td>
+            <td>Sickness Extension Required:</td>
             <td><select id="sickness" onChange="PaTravelPrice(); getTotal();"><option value="55" selected="selected">No</option>
 <option value="56">Yes</option></select></td>
          </tr>
          <tr>
-            <td style="width: 310px;">Travel Cover:</td>
+            <td>Travel Cover:</td>
             <td><select id="travel" onChange="PaTravelPrice(); getTotal();">
            <option value="59">Not Required</option>
           <option value="57">Business Travel Only</option>
@@ -224,23 +228,23 @@
 </div>     
 
 
-<fieldset style="position: relative; width: 500px; margin-bottom: 20px; margin-left: 30px; margin-top: 0px; border: 2px dotted #666666; background: #ffffff;">
-  <legend style="color: #12967c; font-weight: bold; font-size: 18px; font-family: Arial, Helvetica; background: #fafafa;">Premium Summary:</legend>
+<fieldset>
+  <legend>Premium Summary:</legend>
 
 
 
- <table border="0" cellspacing="0" cellpadding="2" style="font-size: 12px;">
-<tr style=margin: 2px;">
+ <table border="0" cellspacing="0" cellpadding="2">
+<tr>
 
-            <td style="width: 450px;"><p style="line-height: 12px; display: inline; float: right; margin: 0px;">Professional Indemnity: €<input type="text" id="cost" style="border: none; font-weight: bold; color: #444444;"/></p></td>
+            <td><p>Professional Indemnity: €<input type="text" id="cost" style="border: none; font-weight: bold; color: #444444;"/></p></td>
             <td><span id="txt1"></span></td>
          </tr>
            <tr style=margin: 2px;">
-            <td style="width: 450px;"><p style="line-height: 12px; display: inline; float: right; margin: 0px;">Commercial Combined: €<input type="text" id="businesscost" style="border: none; font-weight: bold; color: #444444;"/></p></td>
+            <td><p>Commercial Combined: €<input type="text" id="businesscost"></p></td>
             <td><span id="txt1"></span></td>
          </tr>
-         <tr style=margin: 2px;">
-            <td style="width: 450px;"><p style="line-height: 12px; display: inline; float: right; margin: 0px;">Personal Accident, Sickness & Travel: €<input type="text" id="patravelcost" style="border: none; font-weight: bold; color: #444444;"/></p></td>
+         <tr>
+            <td><p>Personal Accident, Sickness & Travel: €<input type="text" id="patravelcost" style="border: none; font-weight: bold; color: #444444;"/></p></td>
             <td><span id="txt1"></span></td>
          </tr>
 
@@ -248,13 +252,14 @@
 </fieldset>  
 
 </table>
-<div id="totalPrice" style="margin: 15px 0 0 150px; font-size: 20px; font-weight: bold; color: #666666;"></div>
-<div id="getcover" style="margin-top: 20px;"><input type="submit" style="float: right;" value="Continue"></div>
+<div id="totalPrice"</div>
+<div id="getcover" value="Continue"></div>
 </form>
 <script type="text/javascript">
   resetForm(document.SelectForm);
 </script>
 </div>
 </div>
+
 </body>
 </html>
