@@ -1,3 +1,5 @@
+
+
 function resetForm(theForm) {
   /* reset profession */
   theForm.profession.options[0] = new Option("Please select Profession", "");
@@ -46,7 +48,7 @@ function updateProfession(theForm) {
  //Create pricing arrays for PI section, the value represents the level of cover chosen
  var professionalIndemnity = new Array();
  professionalIndemnity["100k"]=90;
- professionalIndemnity["200k"]=120;
+ professionalIndemnity["250k"]=120;
  professionalIndemnity["500k"]=150;
  professionalIndemnity["1000k"]=180;
  professionalIndemnity["2000k"]=220; 
@@ -116,22 +118,26 @@ function getTurnoverCost()
 	 
 
         
-function calculateTotal()
+function calculatePITotal()
 {
-    //Here we get the total price by calling our function
+    //Here we get the total Professional Indemnity price by calling our function
     //Each function returns a number so by calling them we add the values they return together
     var premium = getPiCost() + getTurnoverCost();
     
     //display the result
-    var divobj = document.getElementById('totalPrice');
-    divobj.style.display='block';
-    divobj.innerHTML = "Total Premium $"+premium;
+    var divobj = document.getElementById('totalPIPrice');
+    divobj.style.float='right';
+    divobj.innerHTML = "$"+premium;
 
 }
 
+        
+
+
+
 function hideTotal()
 {
-    var divobj = document.getElementById('totalPrice');
+    var divobj = document.getElementById('totalPIPrice');
     divobj.style.display='none';
 }
 
@@ -145,32 +151,12 @@ function totalPiCost()
  
 
 
-
-function getTotal()
-{
-    //Get the total price by calling our function
-    //Each function returns a number so by calling them we add the values they return together
-    var calcPrice = parseInt(document.getElementById('patravelcost').value) + parseInt(document.getElementById('businesscost').value) + parseInt(document.getElementById('cost').value);
- 
-    //display the result
-    document.getElementById('totalPrice').innerHTML = "Total Premium €"+calcPrice.toFixed(2);
-
- 
-}
-
-
 function loadprice()
 {
 //load the minumim prices for each section to produce a basic quote
 
 getTurnoverCost()
 getPiCost()
-calculateTotal()
+calculatePITotal()
+
 }
-
-
-
-
-
-
-
