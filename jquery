@@ -1,0 +1,13 @@
+$(document).ready(function(){
+    $(".Piflip").click(function(){
+        $(".Pipanel").slideToggle("fast");
+    });
+});
+
+$(document).ready(function(){
+    $(".Businessflip").click(function(){
+        $(".Businesspanel").slideToggle("fast");
+    });
+});
+
+
