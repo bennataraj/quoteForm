@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Freelance Insurance</title>
-
-  <script src="js/freelancecalculations.js"></script>
+<title>Real Time JS prie quotation</title>
+  	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery.js"></script>
+        <script src="js/freelancecalculations.js"></script>
+  
+ 
    <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -12,15 +15,18 @@
 		
 	<header>
 		<div class="logo">
-			<h1>Logo goes here</h1>
+			<h1>Real Time JS Quotation</h1>
 			
 		</div>
 		<nav>
-			
-  			<a href="/about/">About</a> |
-  			<a href="/terms of business/">Terms of Business</a> |
- 			<a href="/privacy/">Privacy Policy</a> |
-  			<a href="/contact/">Contact Us</a>
+			<a href="/about/">About</a> |
+  
+			<a href="/terms of business/">Terms of Business</a> |
+ 		
+			<a href="/privacy/">Privacy Policy</a> |
+  			
+			<a href="/contact/">Contact Us</a>
+
 
 		</nav>
 
@@ -59,26 +65,26 @@
  
 
 <div class="rightBody">
-	<h1">Quick Quote</h1>
+	
 
-<form name="SelectForm" action="quote.php" method="post" class= "form1" id="myform"> 
+<form name="SelectForm" action="" method="post" class="form1" id="myForm"> 
   <h3>About You:</h3>
 <fieldset>
         <table border="0" cellspacing="0" cellpadding="0">
          <tr>
             <td>Profession:</td>
-<td><select size="1" name="makes" onchange="updateModels(this.form)">
+<td><select size="1" name="profession" onchange="updateProfession(this.form)">
 </select><br /></td>
            
          </tr>
           <tr>
             <td>Sub Profession:</td>
-            <td><select size="1" name="models">
+            <td><select size="1" name="subProf">
 </select></td>
          </tr>
            <tr>
             <td>Company Turnover:</td>
-<td><select id="qty" onChange="recalculate(); getTotal();"> 
+<td><select id="turnover" onChange="recalculate(); getTotal();"> 
 <option value="0-50">€0 - €50,000</option>
 <option value="50-100">€50,001 - €100,000</option>
 <option value="100-150">€100,001 - €150,000</option>
@@ -92,11 +98,11 @@
          </tr>
          <tr>
             <td>Number of Employees:</td>
-            <td> <select id="employees"><option value="11">1</option>
-<option value="12">2</option>
-<option value="13">3</option>
-<option value="14">4</option>
-<option value="15">5 or more</option></select></td>
+            <td> <select id="employees"><option value="0-5">0-5</option>
+<option value="5-25">5-25</option>
+<option value="25-100">25-100</option>
+<option value="100-500">100-500</option>
+<option value="over500">500 or more</option></select></td>
          </tr>
          
          
@@ -108,33 +114,34 @@
 
 <h4>Professional Indemnity</h4>
 
-<p>Is the cover Required?<label for="yesCheck"> Yes</label>  
-<input type="radio" checked="checked"  value="yes" onclick="yesnoCheck(); recalculate(); getTotal();" name="yesno" id="yesCheck"><label for="noCheck">No</label> <input type="radio" value="no" onclick="yesnoCheck(); recalculate(); getTotal();" name="yesno" id="noCheck"><br></span></p>
-<div id="ifYes" style="display:block">
-<fieldset>
+<div class="Piflip" onclick="recalculate(); getTotal();"><p>Test Click here if Professional Indemnity cover required</p></div>
+<div class="Pipanel">
+ <fieldset>
   
       <table border="0" cellspacing="0" cellpadding="2">
 
          <tr>
-            <td style="width: 310px;">Level of Cover:</td>
-            <td><select id="price" onChange="recalculate(); getTotal();">
-        <option value="118">€100,000</option>
-        <option value="128">€250,000</option>
-        <option value="138">€500,000</option>
-        <option value="148">€1,000,000</option>
-        <option value="158">€2,000,000</option>
+            <td>Level of Cover:</td>
+            <td><select id="piPrice" onChange="recalculate(); getTotal();">
+        <option value="100k" name="piLevel">€100,000</option>
+        <option value="250k" name="piLevel">€250,000</option>
+        <option value="500k" name="piLevel">€500,000</option>
+        <option value="1000k"name="piLevel">€1,000,000</option>
+        <option value="2000k" name="piLevel">€2,000,000</option>
         
-    </select></td>
+   		 </select>
+	</td>
          </tr>
        
       </table>
 
 </fieldset>
+
 </div>
-<h4 style="display: inline;">Business Combined</h4><p>Is the cover Required? <label for="yesCheck1">Yes</label>  
-<input type="radio" checked="checked"  value="yes1" onclick="yesnoCheck1(); BusinessPrice(); getTotal();" name="yesno1" id="yesCheck1"><label for="noCheck1">No</label> <input type="radio" value="no1" onclick="yesnoCheck1(); BusinessPrice(); getTotal();" name="yesno1" id="noCheck1"><br></span></p>
-<div id="ifYes1" style="display:block">
-<fieldset style="width: 500px; margin-bottom: 20px; border: none;">
+<h4>Business Combined</h4>
+<div class="Businessflip" onclick="recalculate(); getTotal();"><p>Click here if Combined Liability Insurance required</p></div>
+<div class="Businesspanel">
+<fieldset>
         <table border="0" cellspacing="0" cellpadding="2" style="font-size: 12px;">
 
          <tr>
