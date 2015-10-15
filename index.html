@@ -84,7 +84,7 @@
          </tr>
            <tr>
             <td>Company Turnover:</td>
-<td><select id="turnover" onChange="recalculate(); getTotal();"> 
+<td><select id="turnover" onChange="calculatePITotal();"> 
 <option value="0-50">€0 - €50,000</option>
 <option value="50-100">€50,001 - €100,000</option>
 <option value="100-150">€100,001 - €150,000</option>
@@ -114,7 +114,7 @@
 
 <h4>Professional Indemnity</h4>
 
-<div class="Piflip" onclick="recalculate(); getTotal();"><p>Test Click here if Professional Indemnity cover required</p></div>
+<div class="Piflip" onclick="calculatePITotal();"><p>Test Click here if Professional Indemnity cover required</p></div>
 <div class="Pipanel">
  <fieldset>
   
@@ -122,7 +122,7 @@
 
          <tr>
             <td>Level of Cover:</td>
-            <td><select id="piPrice" onChange="recalculate(); getTotal();">
+            <td><select id="piPrice" onChange="calculatePITotal();">
         <option value="100k" name="piLevel">€100,000</option>
         <option value="250k" name="piLevel">€250,000</option>
         <option value="500k" name="piLevel">€500,000</option>
@@ -138,20 +138,21 @@
 </fieldset>
 
 </div>
+
 <h4>Business Combined</h4>
-<div class="Businessflip" onclick="recalculate(); getTotal();"><p>Click here if Combined Liability Insurance required</p></div>
+<div class="Businessflip"><p>Click here if Combined Liability Insurance required</p></div>
 <div class="Businesspanel">
 <fieldset>
         <table border="0" cellspacing="0" cellpadding="2" style="font-size: 12px;">
 
          <tr>
             <td>Office Contents:</td>
-            <td><select id="office" onChange="BusinessPrice(); getTotal();"><option value="5000" selected="selected">€5,000</option>
+            <td><select id="office" onChange="calculateCCTotal()"><option value="5000" selected="selected">€5,000</option>
 <option value="10000">€10,000</option></select></td>
          </tr>
           <tr>
             <td>Portable Equipment:</td>
-            <td><select id="portable" onChange="BusinessPrice(); getTotal();"><option value="15" selected="selected">Not Required</option>
+            <td><select id="portable" onChange="calculateCCTotal()"><option value="15" selected="selected">Not Required</option>
 <option value="16">EIRE €1,000</option>
 <option value="17">EIRE €2,000</option>
 <option value="18">EIRE €3,000</option>
@@ -178,18 +179,18 @@
          </tr>
 <tr>
             <td>Public Liability</td>
-            <td><select id="pl" onChange="BusinessPrice(); getTotal();"><option value="32" selected="selected">€1,000,000</option>
+            <td><select id="pl" onChange="calculateCCTotal()"><option value="32" selected="selected">€1,000,000</option>
 <option value="33">€2,000,000</option>
 <option value="34">€5,000,000</option></select></td>
          </tr>
 <tr>
             <td>Include Manual Work</td>
-            <td><select id="manual" onChange="BusinessPrice(); getTotal();"><option value="38" selected="selected">No</option>
+            <td><select id="manual" onChange="calculateCCTotal()"><option value="38" selected="selected">No</option>
 <option value="39">Yes</option></select></td>
          </tr>
 <tr>
             <td>Include Off Shore Work</td>
-            <td><select id="offshore" onChange="BusinessPrice(); getTotal();"><option value="40" selected="selected">No</option>
+            <td><select id="offshore" onChange="calculateCCTotal()"><option value="40" selected="selected">No</option>
 <option value="41">Yes</option></select></td>
          </tr>
          
@@ -197,9 +198,9 @@
       </table>
 </fieldset>
 </div>
-<div><h4">Personal Accident, Sickness & Travel</h4><p style="font-weight: bold; text-align:right; display: inline; margin-left: 59px; color: black;">Is the cover Required? <label for="yesCheck2">Yes</label>  
-<input type="radio" checked="checked"  value="yes2" onclick="yesnoCheck2();  PaTravelPrice(); getTotal();" name="yesno2" id="yesCheck2"><label for="noCheck2">No</label> <input type="radio" value="no2" onclick="yesnoCheck2(); PaTravelPrice(); getTotal();" name="yesno2" id="noCheck2"><br></span></p></div>
-<div id="ifYes2" style="display:block">
+<h4>Personal Accident, Sickness & Travel</h4>
+<div class="paflip"><p>Click here for Personal accident, Sickness & Travel</p></div>
+<div class="papanel">
 <fieldset>
         <table border="0" cellspacing="0" cellpadding="2">
          <tr>
@@ -218,12 +219,12 @@
          </tr>
            <tr>
             <td>Sickness Extension Required:</td>
-            <td><select id="sickness" onChange="PaTravelPrice(); getTotal();"><option value="55" selected="selected">No</option>
+            <td><select id="sickness" onChange="getTotal();"><option value="55" selected="selected">No</option>
 <option value="56">Yes</option></select></td>
          </tr>
          <tr>
             <td>Travel Cover:</td>
-            <td><select id="travel" onChange="PaTravelPrice(); getTotal();">
+            <td><select id="travel" onChange="getTotal();">
            <option value="59">Not Required</option>
           <option value="57">Business Travel Only</option>
           <option value="58">Business & Holiday Travel</option>
@@ -235,32 +236,20 @@
 </div>     
 
 
-<fieldset>
-  <legend>Premium Summary:</legend>
+<div class="pricesTotal">
+
+            <p class="prices">Professional Indemnity:</p>
+			<div id="totalPIPrice"></div>
+          
+           <p class="prices">Commercial Combined: </p>
+			<div id="totalCCPrice"></div>
+
+	   <p class="prices">Personal Accident, Sickness & Travel:</p>
+            		<div id="totalPATPrice"></div>
+    
+</div>
 
 
-
- <table border="0" cellspacing="0" cellpadding="2">
-<tr>
-
-            <td><p>Professional Indemnity: €<input type="text" id="cost" style="border: none; font-weight: bold; color: #444444;"/></p></td>
-            <td><span id="txt1"></span></td>
-         </tr>
-           <tr style=margin: 2px;">
-            <td><p>Commercial Combined: €<input type="text" id="businesscost"></p></td>
-            <td><span id="txt1"></span></td>
-         </tr>
-         <tr>
-            <td><p>Personal Accident, Sickness & Travel: €<input type="text" id="patravelcost" style="border: none; font-weight: bold; color: #444444;"/></p></td>
-            <td><span id="txt1"></span></td>
-         </tr>
-
-
-</fieldset>  
-
-</table>
-<div id="totalPrice"</div>
-<div id="getcover" value="Continue"></div>
 </form>
 <script type="text/javascript">
   resetForm(document.SelectForm);
