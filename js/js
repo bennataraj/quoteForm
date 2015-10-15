@@ -69,17 +69,58 @@ function updateProfession(theForm) {
  turnoverValue["400-450"]=120; 
  turnoverValue["450-500"]=130; 
 
+//Set up an array for Office premium 
+ //The keys represent the estimated Office eqipment
+ //The value represents the premium per office equipment amount amount
  
-//Set up array for employees premium 
- //This array currently not in use, but may be used for future rating. 
+ var officeValue = new Array();
+ officeValue["5000"]=125;
+ officeValue["10000"]=175;
  
- var employees = new Array();
- employees["0-5"]=25;
- employees["5-25"]=45;
- employees["25-100"]=60;
- employees["100-500"]=70;
- employees["over500"]=80;
-	
+//Set up an array for Portable equipment premium 
+
+ 
+ var portValue = new Array();
+ portValue["15"]=0;
+ portValue["16"]=25;
+ portValue["17"]=35;
+ portValue["18"]=45;
+ portValue["19"]=55;
+ portValue["20"]=65;
+ 
+//Set up an array for P/L premium 
+
+ 
+ var plValue = new Array();
+ plValue["32"]=125;
+ plValue["33"]=175;
+ plValue["34"]=225;
+ 
+//This function finds the total Commercial Combined premium based 
+function getCCCost()
+{
+    var CCCost=0;
+    var officeCost =0;
+    var portCost=0;
+    var plCost = 0;
+    //Get a reference to the form id="myForm"
+    var theForm = document.forms["myForm"];
+   
+     var officePrice = theForm.elements["office"];
+     var portPrice = theForm.elements["portable"];
+     var plPrice = theForm.elements["pl"];	
+
+    //set Price equal to value user chose
+   officeCost = officeValue[officePrice.value];
+   portCost = portValue[portPrice.value];
+   plCost = plValue[plPrice.value]
+
+   CCCost = officeCost + portCost + plCost;
+
+    //finally we return CCCost
+    return CCCost;
+}
+ 
 
 //This function finds the Professional Indemnity premium based on the 
 //drop down selection
@@ -131,6 +172,18 @@ function calculatePITotal()
 
 }
 
+function calculateCCTotal()
+{
+    //Here we print the total Commercial Combined price by calling our function
+    
+    var ccpremium = getCCCost() 
+    
+    //display the result
+    var divobj = document.getElementById('totalCCPrice');
+    divobj.style.float='right';
+    divobj.innerHTML = "$"+ccpremium;
+
+}
         
 
 
@@ -160,3 +213,9 @@ getPiCost()
 calculatePITotal()
 
 }
+
+
+
+
+
+
