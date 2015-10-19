@@ -205,7 +205,7 @@
         <table border="0" cellspacing="0" cellpadding="2">
          <tr>
             <td>Accident, Death & Permanent Disability</td>
-            <td><select id="accident" onChange="PaTravelPrice(); getTotal();"><option value="48" selected="selected">€20,000</option>
+            <td><select id="accident" onChange="calculateCCTotal()"><option value="48" selected="selected">€20,000</option>
 <option value="49">€40,000</option>
 <option value="50">€60,000</option>
 <option value="51">€80,000</option>
@@ -219,12 +219,12 @@
          </tr>
            <tr>
             <td>Sickness Extension Required:</td>
-            <td><select id="sickness" onChange="getTotal();"><option value="55" selected="selected">No</option>
+            <td><select id="sickness" onChange="calculateCCTotal()"><option value="55" selected="selected">No</option>
 <option value="56">Yes</option></select></td>
          </tr>
          <tr>
             <td>Travel Cover:</td>
-            <td><select id="travel" onChange="getTotal();">
+            <td><select id="travel" onChange="calculateCCTotal()">
            <option value="59">Not Required</option>
           <option value="57">Business Travel Only</option>
           <option value="58">Business & Holiday Travel</option>
